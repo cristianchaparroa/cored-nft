@@ -1,9 +1,9 @@
 import { useSDK } from "@metamask/sdk-react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const App = () => {
   const [account, setAccount] = useState<string>();
-  const { sdk, connected, connecting, provider, chainId } = useSDK();
+  const { sdk, connected, chainId } = useSDK();
 
   const connect = async () => {
     try {
