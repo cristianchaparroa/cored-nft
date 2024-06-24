@@ -1,55 +1,35 @@
-import {
-  MetaMaskButton,
-  useAccount,
-  useSDK,
-  useSignMessage,
-} from "@metamask/sdk-react-ui";
-import "./App.css";
+import { useSDK } from "@metamask/sdk-react";
+import { useState } from "react";
 
-function AppReady() {
-  const {
-    data: signData,
-    isError: isSignError,
-    isLoading: isSignLoading,
-    isSuccess: isSignSuccess,
-    signMessage,
-  } = useSignMessage({
-    message: "gm wagmi frens",
-  });
+export const App = () => {
+  const [account, setAccount] = useState<string>();
+  const { sdk, connected, chainId } = useSDK();
 
-  const { isConnected } = useAccount();
+  const connect = async () => {
+    try {
+      const accounts = await sdk?.connect();
+      setAccount(accounts?.[0]);
+    } catch (err) {
+      console.warn("failed to connect..", err);
+    }
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <MetaMaskButton theme={"light"} color="white"></MetaMaskButton>
-        {isConnected && (
+      <button style={{ padding: 10, margin: 10 }} onClick={connect}>
+        Connect
+      </button>
+      {connected && (
+        <div>
           <>
-            <div style={{ marginTop: 20 }}>
-              <button
-                disabled={isSignLoading}
-                onClick={() => signMessage()}
-              >
-                Sign message
-              </button>
-              {isSignSuccess && <div>Signature: {signData}</div>}
-              {isSignError && <div>Error signing message</div>}
-            </div>
+            {chainId && `Connected chain: ${chainId}`}
+            <p></p>
+            {account && `Connected account: ${account}`}
           </>
-        )}
-      </header>
+        </div>
+      )}
     </div>
   );
-}
-
-function App() {
-  const { ready } = useSDK();
-
-  if (!ready) {
-    return <div>Loading...</div>;
-  }
-
-  return <AppReady />;
-}
+};
 
 export default App;
