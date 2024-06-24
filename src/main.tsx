@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import WebApp from '@twa-dev/sdk'
-import { MetaMaskProvider } from "@metamask/sdk-react";
+import { MetaMaskUIProvider } from "@metamask/sdk-react-ui";
 
 
 WebApp.ready();
@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <MetaMaskProvider
+    <MetaMaskUIProvider
       debug={false}
       sdkOptions={{
         dappMetadata: {
@@ -22,10 +22,9 @@ root.render(
           url: window.location.href,
         },
         infuraAPIKey: process.env.INFURA_API_KEY,
-        // Other options.
       }}
     >
       <App />
-    </MetaMaskProvider>
+    </MetaMaskUIProvider>
   </React.StrictMode>
 );
