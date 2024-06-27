@@ -1,31 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-import WebApp from '@twa-dev/sdk'
-import { MetaMaskProvider } from "@metamask/sdk-react";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
+import './index.css';
+import App from './App';
 
-WebApp.ready();
+import { Web3Provider } from './components/providers/Web3Provider';
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById('root') as HTMLElement
 );
 
 root.render(
   <React.StrictMode>
-    <MetaMaskProvider
-      debug={false}
-      sdkOptions={{
-        dappMetadata: {
-          name: "Example React Dapp",
-          url: window.location.href,
-        },
-        infuraAPIKey: process.env.INFURA_API_KEY,
-        // Other options.
-      }}
-    >
+    <Web3Provider>
       <App />
-    </MetaMaskProvider>
+    </Web3Provider>
   </React.StrictMode>
 );

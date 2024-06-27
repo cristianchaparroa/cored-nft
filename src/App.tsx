@@ -1,35 +1,49 @@
-import { useSDK } from "@metamask/sdk-react";
-import { useState } from "react";
+'use client';
 
-export const App = () => {
-  const [account, setAccount] = useState<string>();
-  const { sdk, connected, chainId } = useSDK();
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { ConnectKitButton } from 'connectkit';
 
-  const connect = async () => {
-    try {
-      const accounts = await sdk?.connect();
-      setAccount(accounts?.[0]);
-    } catch (err) {
-      console.warn("failed to connect..", err);
-    }
-  };
+function App() {
+  const account = useAccount();
+  const { connectors, connect, status, error } = useConnect();
+  const { disconnect } = useDisconnect();
 
   return (
-    <div className="App">
-      <button style={{ padding: 10, margin: 10 }} onClick={connect}>
-        Connect
-      </button>
-      {connected && (
+    <>
+      <div>
+        <h2>Account</h2>
+        <ConnectKitButton />
+
         <div>
-          <>
-            {chainId && `Connected chain: ${chainId}`}
-            <p></p>
-            {account && `Connected account: ${account}`}
-          </>
+          status: {account.status}
+          <br />
+          addresses: {JSON.stringify(account.addresses)}
+          <br />
+          chainId: {account.chainId}
         </div>
-      )}
-    </div>
+
+        {account.status === 'connected' && (
+          <button type="button" onClick={() => disconnect()}>
+            Disconnect
+          </button>
+        )}
+      </div>
+      <div>
+        <h2>Connect</h2>
+        {connectors.map((connector) => (
+          <button
+            key={connector.uid}
+            onClick={() => connect({ connector })}
+            type="button"
+          >
+            {connector.name}
+          </button>
+        ))}
+        <div>{status}</div>
+        <div>{error?.message}</div>
+      </div>
+    </>
   );
-};
+}
 
 export default App;
