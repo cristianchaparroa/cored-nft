@@ -5,7 +5,6 @@ import './index.css'
 import WebApp from '@twa-dev/sdk'
 import { MetaMaskProvider } from "@metamask/sdk-react";
 
-
 WebApp.ready();
 
 const root = ReactDOM.createRoot(
@@ -15,14 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <MetaMaskProvider
-      debug={false}
+      debug={true}
       sdkOptions={{
         dappMetadata: {
-          name: "Example React Dapp",
-          url: window.location.href,
+          name: "CoreDAO NFT",
+          url:"cored-nft.vercel.app"
         },
         infuraAPIKey: process.env.INFURA_API_KEY,
-        // Other options.
       }}
     >
       <App />
