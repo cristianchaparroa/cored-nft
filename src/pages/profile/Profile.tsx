@@ -50,7 +50,7 @@ const ProfilePage = () => {
                     className="w-11/12"
                     onClick={close}
                     variant="destructive"
-                >Close</Button>
+                >Log out</Button>
             </footer>
         </div> 
     );
