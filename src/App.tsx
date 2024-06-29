@@ -1,35 +1,26 @@
-import { useSDK } from "@metamask/sdk-react";
-import { useState } from "react";
+import './App.css';
+import LoginPage from './pages/login/Login';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ProfilePage from './pages/profile/Profile';
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <LoginPage />
+    }, 
+    {
+        path: '/profile',
+        element: <ProfilePage />
+    } 
+]);
 
 export const App = () => {
-  const [account, setAccount] = useState<string>();
-  const { sdk, connected, chainId } = useSDK();
 
-  const connect = async () => {
-    try {
-      const accounts = await sdk?.connect();
-      setAccount(accounts?.[0]);
-    } catch (err) {
-      console.warn("failed to connect..", err);
-    }
-  };
-
-  return (
-    <div className="App">
-      <button style={{ padding: 10, margin: 10 }} onClick={connect}>
-        Connect
-      </button>
-      {connected && (
-        <div>
-          <>
-            {chainId && `Connected chain: ${chainId}`}
-            <p></p>
-            {account && `Connected account: ${account}`}
-          </>
+    return (
+        <div className="App">
+            <RouterProvider router={router} />
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default App;
