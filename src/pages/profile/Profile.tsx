@@ -16,7 +16,7 @@ const ProfilePage = () => {
         <div className="flex flex-col h-screen justify-between">
             <header className="h-10"><strong className="inline">Profile</strong></header> 
 
-            <main className="mb-auto">
+            <main className="mb-auto text-left ml-4 mr-4">
            
                 <Separator className="my-4" />
 
