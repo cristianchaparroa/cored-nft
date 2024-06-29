@@ -1,12 +1,15 @@
 import { useSDK } from '@metamask/sdk-react';
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+    const navigate = useNavigate();
     const { sdk, chainId, account, balance } = useSDK();
 
     const close = () => {
         sdk?.terminate();
+        navigate("/");
     };
 
     return (
