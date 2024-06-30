@@ -13,7 +13,7 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen justify-between">
+        <div className="flex flex-col h-screen justify-between mt-6">
             <header className="h-10"><strong className="inline">Profile</strong></header> 
 
             <main className="mb-auto text-left ml-4 mr-4">
@@ -45,7 +45,7 @@ const ProfilePage = () => {
                 <Separator className="my-4" />
             </main>    
 
-            <footer className="mb-10">
+            <footer className="mb-20">
                 <Button
                     className="w-11/12"
                     onClick={close}

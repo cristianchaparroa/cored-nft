@@ -1,0 +1,7 @@
+.text-wrapper {
+  /* layout stuff */
+  display: flex;
+  gap: 0.25em;
+  align-items: center;
+}
+
