@@ -2,7 +2,7 @@ name: foundry-tests
 
 on:
   pull_request:
-  push: { branches: [main] }
+    branches: [ main ]
 
 env:
   FOUNDRY_PROFILE: ci
