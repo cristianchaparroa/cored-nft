@@ -1,6 +1,8 @@
 name: foundry-tests
 
-on: workflow_dispatch
+on:
+  pull_request:
+    branches: [ main ]
 
 env:
   FOUNDRY_PROFILE: ci
@@ -24,6 +26,11 @@ jobs:
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
+
+      - name: Run Forge Install
+        run: |
+          forge install --no-git 
+          forge install --no-git OpenZeppelin/openzeppelin-contracts
 
       - name: Run Forge build
         run: |
