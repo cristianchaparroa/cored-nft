@@ -27,10 +27,13 @@ jobs:
         with:
           version: nightly
 
+      - name: Run Forge Install
+        run: |
+          forge install
+
       - name: Run Forge build
         run: |
           forge --version
-          forge install
           forge build --sizes
         id: build
 
