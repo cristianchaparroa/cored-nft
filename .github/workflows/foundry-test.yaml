@@ -27,6 +27,11 @@ jobs:
         with:
           version: nightly
 
+      - name: Run Forge Install
+        run: |
+          forge install --no-git 
+          forge install --no-git OpenZeppelin/openzeppelin-contracts
+
       - name: Run Forge build
         run: |
           forge --version
