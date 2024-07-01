@@ -30,6 +30,7 @@ jobs:
       - name: Run Forge Install
         run: |
           forge install
+          forge install OpenZeppelin/openzeppelin-contracts
 
       - name: Run Forge build
         run: |
