@@ -4,3 +4,13 @@ out = "out"
 libs = ["lib"]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+evm_version = 'paris'
+
+
+[rpc_endpoints]
+core_mainnet = "https://rpc.ankr.com/core"
+core_testnet = "https://rpc.test.btcs.network"
+
+[etherscan]
+core_mainnet = { key =  "${ETHERSCAN_MAINNET_KEY}" , chain=1116, url = "https://openapi.coredao.org/api"  }
+core_testnet = { key =  "${ETHERSCAN_TESTNET_KEY}" , chain=1115 , url = "https://api.test.btcs.network/api"  }

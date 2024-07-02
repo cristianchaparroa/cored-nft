@@ -6,7 +6,7 @@ import { Stone } from "./Stone.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
-contract StoneFactory is Ownable  {
+contract Factory is Ownable  {
     event  StoneCreated(address stoneAddress, address initialOwner);
     
     constructor(address initialOwner) Ownable(initialOwner) {}
