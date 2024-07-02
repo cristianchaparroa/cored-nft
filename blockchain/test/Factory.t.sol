@@ -3,10 +3,10 @@ pragma solidity ^0.8.20;
 
 import { Test } from "forge-std/Test.sol";
 import { Stone } from "../src/Stone.sol";
-import { StoneFactory } from "../src/Factory.sol";
+import { Factory } from "../src/Factory.sol";
 
 contract StoneFactoryTest is Test {
-    StoneFactory private factory;
+    Factory private factory;
 
     address private aliceUser = address(0x123);
     address private rabbitUser = address(0x456);
@@ -15,7 +15,7 @@ contract StoneFactoryTest is Test {
     address private doeReceiver = address(0xabc);
 
     function setUp() public {
-        factory = new StoneFactory(address(this));
+        factory = new Factory(address(this));
     }
 
     function testCreateMultipleStones() public {
