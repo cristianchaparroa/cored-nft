@@ -31,9 +31,10 @@ export const LoginPage = () => {
 
       <div className="sdkConfig">
         {connecting && (
-            <div>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                <div>Waiting for Metamask to link the connection...</div>
+            <div className="flex justify-center">
+                <TextIcon text="Waiting for Metamask to Link the connection" tsize={12}>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                </TextIcon>
             </div>
         )}
       </div>
