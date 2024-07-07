@@ -41,6 +41,9 @@ const NFTPage = () => {
 
     return (
         <div className="p-6">
+            <div className="mb-5"> 
+                <strong> Create a NFT</strong> 
+            </div>
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormField

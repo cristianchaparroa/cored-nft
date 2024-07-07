@@ -13,7 +13,7 @@ import NFTPage from "../nft/Nft"
 
 const HomePage =  () => {
     return (
-        <div>
+        <div className="mt-4">
             <Tabs defaultValue="create" className="w-[400px]">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="create"> <PenSquare/> </TabsTrigger>
