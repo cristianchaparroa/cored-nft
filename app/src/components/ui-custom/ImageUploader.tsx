@@ -88,7 +88,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ setImage }) => {
               <FormControl>
                 <div
                   {...getRootProps()}
-                  className="mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border border-foreground p-8 shadow-sm shadow-foreground"
+                  className="border-gray-900 mx-auto flex cursor-pointer flex-col items-center justify-center gap-y-2 rounded-lg border border-foreground p-8 "
                 >
                   {preview && (
                     <img
