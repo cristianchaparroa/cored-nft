@@ -9,6 +9,7 @@ import ProfilePage from "../profile/Profile"
 import { PenSquare } from "lucide-react"
 import { UserRound } from "lucide-react"
 import { Images } from "lucide-react"  
+import NFTPage from "../nft/Nft"
 
 const HomePage =  () => {
     return (
@@ -21,7 +22,7 @@ const HomePage =  () => {
               </TabsList>
 
               <TabsContent value="create">
-                <div> Create your NFT</div>
+                <NFTPage/>
               </TabsContent>
               
               <TabsContent value="profile">
