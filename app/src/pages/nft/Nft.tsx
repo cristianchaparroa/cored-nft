@@ -16,8 +16,8 @@ import { ImageUploader } from "@/components/ui-custom/ImageUploader";
 
 const formSchema = z.object({
     name: z.string().min(2).max(150),
+    description: z.string().min(10).max(150),
     supply: z.number(),
-    description: z.string(),
 });
 
 const NFTPage = () => {
@@ -48,7 +48,7 @@ const NFTPage = () => {
                     name="name"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Name</FormLabel>
+                            <FormLabel className="text-left">Name</FormLabel>
                             <FormControl>
                                     <Input placeholder="nft name" {...field} />
                             </FormControl>
@@ -61,7 +61,7 @@ const NFTPage = () => {
                     name="description"
                     render={({ field }) => (
                         <FormItem>
-                                <FormLabel>Description</FormLabel>
+                                <FormLabel className="text-left">Description</FormLabel>
                                 <FormControl>
                                     <Input placeholder="Description" {...field} />
                                 </FormControl>
