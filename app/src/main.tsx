@@ -17,8 +17,11 @@ root.render(
       debug={true}
       sdkOptions={{
         dappMetadata: {
-          name: "CoreDAO NFT",
-          url:"cored-nft.vercel.app"
+          name: "Stone NFT",
+          url:"https://stone-nft.vercel.app"
+        },
+        storage: {
+          enabled: true,
         },
         infuraAPIKey: process.env.INFURA_API_KEY,
       }}
